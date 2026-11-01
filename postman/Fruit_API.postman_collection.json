@@ -1,0 +1,413 @@
+{
+  "item": [
+    {
+      "id": "69a9a21b-df8c-452e-9d58-2adb52f2826a",
+      "name": "All fruits",
+      "request": {
+        "url": {
+          "path": [
+            "api",
+            "fruits"
+          ],
+          "host": [
+            "{{base_url}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "method": "GET"
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "9597519c-c48b-4f05-9fe4-134f74be38be",
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+              "const body = pm.response.json();",
+              "const all = JSON.parse(pm.collectionVariables.get('fruits') || '[]');",
+              "pm.test('Correct response', () => {",
+              "  pm.expect(body).to.be.an('array');",
+              "  pm.collectionVariables.set('fruits', JSON.stringify(body));",
+              "});",
+              "pm.test('Fruit objects contain expected fields', () => {",
+              "  body.forEach(f => { pm.expect(f.name).to.be.a('string'); pm.expect(f.nutritions.calories).to.be.a('number'); });",
+              "});"
+            ],
+            "_lastExecutionId": "0f941f1f-e223-4c3d-a76a-4458d0a91ebb"
+          }
+        }
+      ]
+    },
+    {
+      "id": "342d4f9c-a240-4a99-a69b-612a6cd3eab7",
+      "name": "Search app",
+      "request": {
+        "url": {
+          "path": [
+            "api",
+            "search",
+            "app"
+          ],
+          "host": [
+            "{{base_url}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "method": "GET"
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "6aa3d25c-ac0f-4072-9304-9472ba324013",
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+              "const body = pm.response.json();",
+              "const all = JSON.parse(pm.collectionVariables.get('fruits') || '[]');",
+              "pm.test('Correct response', () => {",
+              "  pm.expect(body).to.be.an('array');",
+              "  pm.expect(body).to.deep.equal(all.filter(f => f.name.toLowerCase().includes('app')));",
+              "});"
+            ],
+            "_lastExecutionId": "df7c6e67-c7b8-4344-9303-37fa9d1f84a3"
+          }
+        }
+      ]
+    },
+    {
+      "id": "6345cf1e-f0c1-480d-baa6-8c9903a93088",
+      "name": "Search mixed case",
+      "request": {
+        "url": {
+          "path": [
+            "api",
+            "search",
+            "aPp"
+          ],
+          "host": [
+            "{{base_url}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "method": "GET"
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "e91a63b2-c7ac-4020-b694-ceb56056e895",
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+              "const body = pm.response.json();",
+              "const all = JSON.parse(pm.collectionVariables.get('fruits') || '[]');",
+              "pm.test('Correct response', () => {",
+              "  pm.expect(body).to.be.an('array');",
+              "  pm.expect(body).to.deep.equal(all.filter(f => f.name.toLowerCase().includes('app')));",
+              "});"
+            ],
+            "_lastExecutionId": "e7eb316e-806a-4e63-873d-c0f21d43ee80"
+          }
+        }
+      ]
+    },
+    {
+      "id": "5c184d66-70ad-425d-9e01-0689a8ab4b60",
+      "name": "Search exact name",
+      "request": {
+        "url": {
+          "path": [
+            "api",
+            "search",
+            "Lime"
+          ],
+          "host": [
+            "{{base_url}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "method": "GET"
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "439a9ba7-78f0-4e66-ab24-51de1a6c4eca",
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+              "const body = pm.response.json();",
+              "const all = JSON.parse(pm.collectionVariables.get('fruits') || '[]');",
+              "pm.test('Correct response', () => {",
+              "  pm.expect(body).to.be.an('array');",
+              "  pm.expect(body).to.deep.equal(all.filter(f => f.name.toLowerCase().includes('lime')));",
+              "});"
+            ],
+            "_lastExecutionId": "ef715902-7e52-48a9-8b3d-76cd4ab5a7c1"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ad11de3d-10bb-489a-8d00-7237b5d40981",
+      "name": "Search no matches",
+      "request": {
+        "url": {
+          "path": [
+            "api",
+            "search",
+            "no-such-fruit-xyz"
+          ],
+          "host": [
+            "{{base_url}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "method": "GET"
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "3523d035-1c29-45d1-9de7-4aa8ade5825a",
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+              "const body = pm.response.json();",
+              "const all = JSON.parse(pm.collectionVariables.get('fruits') || '[]');",
+              "pm.test('Correct response', () => {",
+              "  pm.expect(body).to.be.an('array');",
+              "  pm.expect(body).to.deep.equal([]);",
+              "});"
+            ],
+            "_lastExecutionId": "83bfc33b-6d94-4a32-a3d8-8ac9231e14cc"
+          }
+        }
+      ]
+    },
+    {
+      "id": "02b0a7c0-80b1-4a8b-a609-c3c7e2cc51e2",
+      "name": "Calories inclusive 25",
+      "request": {
+        "url": {
+          "path": [
+            "api",
+            "calories",
+            "25"
+          ],
+          "host": [
+            "{{base_url}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "method": "GET"
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "6cf845a8-fe11-44d3-bc80-94b076b3980e",
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+              "const body = pm.response.json();",
+              "const all = JSON.parse(pm.collectionVariables.get('fruits') || '[]');",
+              "pm.test('Correct response', () => {",
+              "  pm.expect(body).to.be.an('array');",
+              "  pm.expect(body).to.deep.equal(all.filter(f => f.nutritions.calories <= 25));",
+              "});"
+            ],
+            "_lastExecutionId": "bb332010-6544-4d11-b969-ddf4a1f57728"
+          }
+        }
+      ]
+    },
+    {
+      "id": "787903fd-ce1e-4388-bce0-845668a2aa48",
+      "name": "Calories decimal",
+      "request": {
+        "url": {
+          "path": [
+            "api",
+            "calories",
+            "24.9"
+          ],
+          "host": [
+            "{{base_url}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "method": "GET"
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "976380b3-242f-40f6-b069-227c9ba940b4",
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+              "const body = pm.response.json();",
+              "const all = JSON.parse(pm.collectionVariables.get('fruits') || '[]');",
+              "pm.test('Correct response', () => {",
+              "  pm.expect(body).to.be.an('array');",
+              "  pm.expect(body).to.deep.equal(all.filter(f => f.nutritions.calories <= 24.9));",
+              "});"
+            ],
+            "_lastExecutionId": "e5fc8c44-ae3d-4c77-a93f-2df90c7d0451"
+          }
+        }
+      ]
+    },
+    {
+      "id": "4c2f85bc-906a-471f-8d7f-a46bd284b04c",
+      "name": "Calories no matches",
+      "request": {
+        "url": {
+          "path": [
+            "api",
+            "calories",
+            "-1"
+          ],
+          "host": [
+            "{{base_url}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "method": "GET"
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "a3b91e32-1780-4497-a7fa-6b86f5fc6567",
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+              "const body = pm.response.json();",
+              "const all = JSON.parse(pm.collectionVariables.get('fruits') || '[]');",
+              "pm.test('Correct response', () => {",
+              "  pm.expect(body).to.be.an('array');",
+              "  pm.expect(body).to.deep.equal([]);",
+              "});"
+            ],
+            "_lastExecutionId": "a2d09fce-032d-48cc-9f0d-e25039cd29f6"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c52d4303-7505-485b-a1c7-f729b5dd9a05",
+      "name": "Calories invalid input",
+      "request": {
+        "url": {
+          "path": [
+            "api",
+            "calories",
+            "invalid"
+          ],
+          "host": [
+            "{{base_url}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "method": "GET"
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "9be63436-bd1a-4920-8f9b-58934966a7bd",
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+              "const body = pm.response.json();",
+              "const all = JSON.parse(pm.collectionVariables.get('fruits') || '[]');",
+              "pm.test('Correct response', () => {",
+              "  pm.expect(body).to.have.property('detail');",
+              "});"
+            ],
+            "_lastExecutionId": "e0877ea4-450e-48c9-8f29-deedfc437693"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c457278f-8068-43ec-b050-c713906543ba",
+      "name": "Unknown route",
+      "request": {
+        "url": {
+          "path": [
+            "not-found"
+          ],
+          "host": [
+            "{{base_url}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "method": "GET"
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "a8687688-08f8-4387-8dde-f77734ffa339",
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 404', () => pm.response.to.have.status(404));",
+              "const body = pm.response.json();",
+              "const all = JSON.parse(pm.collectionVariables.get('fruits') || '[]');",
+              "pm.test('Correct response', () => {",
+              "  pm.expect(body).to.have.property('detail');",
+              "});"
+            ],
+            "_lastExecutionId": "2107d58d-a14d-47ec-aeed-d347202e7c83"
+          }
+        }
+      ]
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:4000",
+      "key": "base_url"
+    }
+  ],
+  "info": {
+    "_postman_id": "88a86d41-1f9d-4b1f-abd5-4fd321f9eb48",
+    "name": "Fruit API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Run all requests in order against the local API. Results are compared with the first all-fruits response; no fixed fruit counts are assumed.",
+      "type": "text/plain"
+    }
+  },
+  "name": "collection",
+  "_postman_variable_scope": "collection",
+  "_postman_exported_at": "2026-11-01T17:32:38.796Z",
+  "_postman_exported_using": "Newman/6.2.3"
+}

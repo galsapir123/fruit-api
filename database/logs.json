@@ -1,0 +1,242 @@
+[
+  {
+    "_id": {
+      "$oid": "6ae776b828ee99a8615de05f"
+    },
+    "method": "GET",
+    "route": "/api/fruits",
+    "total_results": 49,
+    "client_ip": "127.0.0.1",
+    "created_at": {
+      "$date": "2026-11-01T17:28:23.149Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6ae7771d28ee99a8615de060"
+    },
+    "method": "GET",
+    "route": "/api/fruits",
+    "total_results": 49,
+    "client_ip": "127.0.0.1",
+    "created_at": {
+      "$date": "2026-11-01T17:30:05.131Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6ae7771d28ee99a8615de061"
+    },
+    "method": "GET",
+    "route": "/api/search/app",
+    "total_results": 3,
+    "client_ip": "127.0.0.1",
+    "created_at": {
+      "$date": "2026-11-01T17:30:05.399Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6ae7771d28ee99a8615de062"
+    },
+    "method": "GET",
+    "route": "/api/search/aPp",
+    "total_results": 3,
+    "client_ip": "127.0.0.1",
+    "created_at": {
+      "$date": "2026-11-01T17:30:05.484Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6ae7771d28ee99a8615de063"
+    },
+    "method": "GET",
+    "route": "/api/search/no-such-fruit-xyz",
+    "total_results": 0,
+    "client_ip": "127.0.0.1",
+    "created_at": {
+      "$date": "2026-11-01T17:30:05.564Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6ae7771d28ee99a8615de064"
+    },
+    "method": "GET",
+    "route": "/api/calories/25",
+    "total_results": 4,
+    "client_ip": "127.0.0.1",
+    "created_at": {
+      "$date": "2026-11-01T17:30:05.646Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6ae7771d28ee99a8615de065"
+    },
+    "method": "GET",
+    "route": "/api/calories/24.9",
+    "total_results": 2,
+    "client_ip": "127.0.0.1",
+    "created_at": {
+      "$date": "2026-11-01T17:30:05.731Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6ae7771d28ee99a8615de066"
+    },
+    "method": "GET",
+    "route": "/api/calories/-1",
+    "total_results": 0,
+    "client_ip": "127.0.0.1",
+    "created_at": {
+      "$date": "2026-11-01T17:30:05.811Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6ae7771d28ee99a8615de067"
+    },
+    "method": "GET",
+    "route": "/api/calories/invalid",
+    "total_results": 0,
+    "client_ip": "127.0.0.1",
+    "created_at": {
+      "$date": "2026-11-01T17:30:05.895Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6ae7771d28ee99a8615de068"
+    },
+    "method": "GET",
+    "route": "/not-found",
+    "total_results": 0,
+    "client_ip": "127.0.0.1",
+    "created_at": {
+      "$date": "2026-11-01T17:30:05.898Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6ae777b528ee99a8615de069"
+    },
+    "method": "GET",
+    "route": "/api/fruits",
+    "total_results": 49,
+    "client_ip": "127.0.0.1",
+    "created_at": {
+      "$date": "2026-11-01T17:32:36.935Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6ae777b528ee99a8615de06a"
+    },
+    "method": "GET",
+    "route": "/api/search/app",
+    "total_results": 3,
+    "client_ip": "127.0.0.1",
+    "created_at": {
+      "$date": "2026-11-01T17:32:37.471Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6ae777b528ee99a8615de06b"
+    },
+    "method": "GET",
+    "route": "/api/search/aPp",
+    "total_results": 3,
+    "client_ip": "127.0.0.1",
+    "created_at": {
+      "$date": "2026-11-01T17:32:37.642Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6ae777b528ee99a8615de06c"
+    },
+    "method": "GET",
+    "route": "/api/search/Lime",
+    "total_results": 1,
+    "client_ip": "127.0.0.1",
+    "created_at": {
+      "$date": "2026-11-01T17:32:37.814Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6ae777b628ee99a8615de06d"
+    },
+    "method": "GET",
+    "route": "/api/search/no-such-fruit-xyz",
+    "total_results": 0,
+    "client_ip": "127.0.0.1",
+    "created_at": {
+      "$date": "2026-11-01T17:32:37.987Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6ae777b628ee99a8615de06e"
+    },
+    "method": "GET",
+    "route": "/api/calories/25",
+    "total_results": 4,
+    "client_ip": "127.0.0.1",
+    "created_at": {
+      "$date": "2026-11-01T17:32:38.154Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6ae777b628ee99a8615de06f"
+    },
+    "method": "GET",
+    "route": "/api/calories/24.9",
+    "total_results": 2,
+    "client_ip": "127.0.0.1",
+    "created_at": {
+      "$date": "2026-11-01T17:32:38.312Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6ae777b628ee99a8615de070"
+    },
+    "method": "GET",
+    "route": "/api/calories/-1",
+    "total_results": 0,
+    "client_ip": "127.0.0.1",
+    "created_at": {
+      "$date": "2026-11-01T17:32:38.484Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6ae777b628ee99a8615de071"
+    },
+    "method": "GET",
+    "route": "/api/calories/invalid",
+    "total_results": 0,
+    "client_ip": "127.0.0.1",
+    "created_at": {
+      "$date": "2026-11-01T17:32:38.654Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6ae777b628ee99a8615de072"
+    },
+    "method": "GET",
+    "route": "/not-found",
+    "total_results": 0,
+    "client_ip": "127.0.0.1",
+    "created_at": {
+      "$date": "2026-11-01T17:32:38.749Z"
+    }
+  }
+]

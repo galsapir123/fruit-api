@@ -1,0 +1,6 @@
+{
+  "verified_at_utc": "2026-11-01T17:33:22.098383+00:00",
+  "method": "Native mongorestore into isolated verification database",
+  "restored_documents": 20,
+  "matches_extended_json_export": true
+}

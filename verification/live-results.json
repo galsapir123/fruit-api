@@ -1,0 +1,58 @@
+{
+  "verified_at_utc": "2026-11-01T17:30:05.901172+00:00",
+  "source": "Live Fruityvice API and real local MongoDB",
+  "checks": [
+    {
+      "route": "/api/fruits",
+      "status": 200,
+      "total_results": 49,
+      "database_log_verified": true
+    },
+    {
+      "route": "/api/search/app",
+      "status": 200,
+      "total_results": 3,
+      "database_log_verified": true
+    },
+    {
+      "route": "/api/search/aPp",
+      "status": 200,
+      "total_results": 3,
+      "database_log_verified": true
+    },
+    {
+      "route": "/api/search/no-such-fruit-xyz",
+      "status": 200,
+      "total_results": 0,
+      "database_log_verified": true
+    },
+    {
+      "route": "/api/calories/25",
+      "status": 200,
+      "total_results": 4,
+      "database_log_verified": true
+    },
+    {
+      "route": "/api/calories/24.9",
+      "status": 200,
+      "total_results": 2,
+      "database_log_verified": true
+    },
+    {
+      "route": "/api/calories/-1",
+      "status": 200,
+      "total_results": 0,
+      "database_log_verified": true
+    },
+    {
+      "route": "/api/calories/invalid",
+      "status": 422,
+      "database_log_verified": true
+    },
+    {
+      "route": "/not-found",
+      "status": 404,
+      "database_log_verified": true
+    }
+  ]
+}
